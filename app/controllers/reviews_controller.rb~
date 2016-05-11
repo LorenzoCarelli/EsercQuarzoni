@@ -8,6 +8,8 @@ class ReviewsController < ApplicationController
 	def create
 		id_movie = params[:movie_id]
 		@movie = Movie.find(id_movie)
+		@user = current_user
+  		:user_id=current_user.id
 		@review = @movie.reviews.create!(params[:review].permit(:potatoes, :comments, current_user.id))
 		flash[:notice] = "A review has from #{current_user.email} been successfully added to #{@movie.title}."
 		redirect_to movie_path(@movie)

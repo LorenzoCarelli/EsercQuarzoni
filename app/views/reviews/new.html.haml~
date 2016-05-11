@@ -8,6 +8,8 @@
   = label :review, :comments, 'Comment'
   = text_field :review, :comments
 
+  = label :review, :user, 'User'
+  = text_field :review, :moviegoer_id, '1' 
 
   <br/><br/>
   = submit_tag 'Add review'
